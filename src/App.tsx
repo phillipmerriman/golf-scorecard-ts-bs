@@ -1,6 +1,7 @@
 import { Container } from 'react-bootstrap';
 import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
+import { Signup } from './components/Signup';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { NewGame } from './pages/NewGame';
@@ -12,7 +13,10 @@ function App() {
 	return (
 		<>
 			<Navbar />
-			<Container className="mb-4">
+			<Container
+				className="d-flex justify-content-center mb-4"
+				style={{ minHeight: '100vh' }}
+			>
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/new-game" element={<NewGame />} />
@@ -20,6 +24,7 @@ function App() {
 					<Route path="/scoreboard" element={<Scoreboard />} />
 					<Route path="/previous-games" element={<PreviousGames />} />
 					<Route path="/login" element={<Login />} />
+					<Route path="/sign-up" element={<Signup />} />
 				</Routes>
 			</Container>
 		</>
