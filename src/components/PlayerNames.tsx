@@ -1,4 +1,5 @@
 import { Button, Form, InputGroup } from 'react-bootstrap';
+import * as playerData from '../data/players.json';
 
 type PlayerNamesProps = {
 	numberOfPlayers: number;
@@ -6,22 +7,78 @@ type PlayerNamesProps = {
 	setPlayerCountChosen: Function;
 };
 
+/*
+[
+    {
+        "name": "name",
+        "score": {
+            "hole-1": 0,
+            "hole-2": 0,
+            "hole-3": 0,
+            "hole-4": 0,
+            "hole-5": 0,
+            "hole-6": 0,
+            "hole-7": 0,
+            "hole-8": 0,
+            "hole-9": 0
+        }
+    }
+]
+
+{
+    player-1: {
+        name: "name",
+        score: {
+            hole-1: 0,
+            hole-2: 0,
+            hole-3: 0,
+            hole-4: 0,
+            hole-5: 0,
+            hole-6: 0,
+            hole-7: 0,
+            hole-8: 0,
+            hole-9: 0
+        }
+    }
+}
+*/
+
 export const PlayerNames = ({
 	numberOfPlayers,
 	setNumberOfPlayers,
 	setPlayerCountChosen,
 }: PlayerNamesProps) => {
+    const players:Array<Object> = [];
+    const defaultScore:Object = {
+            hole1: 0,
+            hole2: 0,
+            hole3: 0,
+            hole4: 0,
+            hole5: 0,
+            hole6: 0,
+            hole7: 0,
+            hole8: 0,
+            hole9: 0
+    }
 	const playerNamesForm = [];
+
 	for (let i = 0; i < numberOfPlayers; i++) {
         const label = `Player ${i + 1}`;
+        const newPlayer:any = {name: '', score: defaultScore};
+        players.push(newPlayer);
+        // might need this later:
+        const thisPlayer = players.find(player => player);
+
 		playerNamesForm.push(
 			<InputGroup size="sm" className="mb-3" key={'IG' + i}>
 				<InputGroup.Text id={i + label}>
 					{label}
 				</InputGroup.Text>
 				<Form.Control
+                    id={`${label.replace(' ', '').toLowerCase()}Input`}
 					aria-label={label}
 					aria-describedby="inputGroup-sizing-sm"
+                    onChange={(e) => newPlayer.name = e.target.value}
 				/>
 			</InputGroup>
 		);
@@ -58,7 +115,7 @@ export const PlayerNames = ({
 				</svg>{' '}
 				Go Back
 			</Button>
-			<Button className="mt-3 ms-3" variant="primary">
+			<Button className="mt-3 ms-3" variant="primary" onClick={(e) => console.log(players)}>
 				Continue
 			</Button>
 		</>
