@@ -1,4 +1,6 @@
 import { Button, Form, InputGroup } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { uid } from 'uid';
 import * as playerData from '../data/players.json';
 
 type PlayerNamesProps = {
@@ -48,40 +50,45 @@ export const PlayerNames = ({
 	setNumberOfPlayers,
 	setPlayerCountChosen,
 }: PlayerNamesProps) => {
-    const players:Array<Object> = [];
-    const defaultScore:Object = {
-            hole1: 0,
-            hole2: 0,
-            hole3: 0,
-            hole4: 0,
-            hole5: 0,
-            hole6: 0,
-            hole7: 0,
-            hole8: 0,
-            hole9: 0
-    }
+	const players: Array<Object> = [];
+	const defaultScore: Object = {
+		hole1: 0,
+		hole2: 0,
+		hole3: 0,
+		hole4: 0,
+		hole5: 0,
+		hole6: 0,
+		hole7: 0,
+		hole8: 0,
+		hole9: 0,
+	};
 	const playerNamesForm = [];
+	const navigate = useNavigate();
 
 	for (let i = 0; i < numberOfPlayers; i++) {
-        const label = `Player ${i + 1}`;
-        const newPlayer:any = {name: '', score: defaultScore};
-        players.push(newPlayer);
-        // might need this later:
-        const thisPlayer = players.find(player => player);
+		const label = `Player ${i + 1}`;
+        const ID = uid(8);
+		const newPlayer: any = { id: ID, name: '', score: defaultScore };
+		players.push(newPlayer);
+		// might need this later:
+		const thisPlayer = players.find((player) => player);
 
 		playerNamesForm.push(
 			<InputGroup size="sm" className="mb-3" key={'IG' + i}>
-				<InputGroup.Text id={i + label}>
-					{label}
-				</InputGroup.Text>
+				<InputGroup.Text id={i + label}>{label}</InputGroup.Text>
 				<Form.Control
-                    id={`${label.replace(' ', '').toLowerCase()}Input`}
+					id={`${label.replace(' ', '').toLowerCase()}Input`}
 					aria-label={label}
 					aria-describedby="inputGroup-sizing-sm"
-                    onChange={(e) => newPlayer.name = e.target.value}
+					onChange={(e) => (newPlayer.name = e.target.value)}
 				/>
-			</InputGroup>
+			</InputGroup>,
 		);
+	}
+
+	const handleGolferNameSubmit = async () => {
+		await localStorage.setItem('golfers', JSON.stringify(players));
+		navigate('/Scoreboard');
 	};
 
 	return (
@@ -115,7 +122,7 @@ export const PlayerNames = ({
 				</svg>{' '}
 				Go Back
 			</Button>
-			<Button className="mt-3 ms-3" variant="primary" onClick={(e) => console.log(players)}>
+			<Button className="mt-3 ms-3" variant="primary" onClick={handleGolferNameSubmit}>
 				Continue
 			</Button>
 		</>
