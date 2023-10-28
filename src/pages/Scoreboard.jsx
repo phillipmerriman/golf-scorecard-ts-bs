@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
 
@@ -12,20 +13,12 @@ export const Scoreboard = () => {
     }
 
 	useEffect(() => {
-		console.log({ editHoleScoreForGolfer });
+		console.log({ editHoleScoreForGolfer, localGolfersJSON, localGolfers });
 	}, [editHoleScoreForGolfer]);
 
 	return (
 		<>
 			<h1>Scoreboard</h1>
-			<h2>Players:</h2>
-			<ul>
-				{localGolfers.map((golfer, index) => {
-					return (
-						<li key={`golfer-name${index + 1}`}>{golfer.name}</li>
-					);
-				})}
-			</ul>
 			<Table striped bordered hover variant="dark">
 				<thead>
 					<tr>
@@ -304,6 +297,7 @@ export const Scoreboard = () => {
 					})}
 				</tbody>
 			</Table>
+            <Button disabled={!localGolfers[0].score.hole1}>Save Game</Button>
 		</>
 	);
 };
