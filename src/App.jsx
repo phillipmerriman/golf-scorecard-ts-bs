@@ -9,26 +9,38 @@ import { PreviousGames } from './pages/PreviousGames';
 import { Scoreboard } from './pages/Scoreboard';
 import players from './data/players.json';
 
-
-
 function App() {
-    console.log({players});
-    
+    console.log({ players });
 
-	return (
+    return (
         <>
             <Navbar />
             <Container className="mb-4">
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/new-game" element={<NewGame />} />
-                    <Route path="/scoreboard" element={<Scoreboard />} />
-                    <Route path="/previous-games" element={<PreviousGames />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route
+                        path="/"
+                        element={<Home />}
+                    />
+                    <Route
+                        path="/new-game"
+                        element={<NewGame />}
+                    />
+                    <Route
+                        path="/scoreboard"
+                        element={<Scoreboard />}
+                    />
+                    <Route
+                        path="/previous-games"
+                        element={<PreviousGames />}
+                    />
+                    <Route
+                        path="/login"
+                        element={<Login />}
+                    />
                 </Routes>
             </Container>
         </>
-	);
-};
+    );
+}
 
 export default App;
