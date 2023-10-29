@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
+import SaveConfirmationModal from '../components/SaveConfirmationModal';
 
 export const Scoreboard = () => {
     // TODO: convert to typescript
@@ -16,6 +17,7 @@ export const Scoreboard = () => {
 
     const handleSave = () => {
         localGolfers.some((golfer) => {
+            // if there are any unscored holes, warn User
             for (const key of Object.keys(golfer.score)) {
                 if (!golfer.score[key]) setSaveConfirmation(true);
             }
@@ -28,6 +30,10 @@ export const Scoreboard = () => {
 
     return (
         <>
+            <SaveConfirmationModal
+                saveConfirmation={saveConfirmation}
+                setSaveConfirmation={setSaveConfirmation}
+            />
             <h1>Scoreboard</h1>
             <Table
                 striped

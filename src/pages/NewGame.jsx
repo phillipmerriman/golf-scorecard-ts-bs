@@ -1,3 +1,4 @@
+import React from 'react';
 import { ChooseNumberOfPlayers } from '../components/ChooseNumberOfPlayers';
 import { useState } from 'react';
 import { PlayerNames } from '../components/PlayerNames';

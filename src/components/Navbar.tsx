@@ -32,7 +32,7 @@ export const Navbar = () => {
                     to="/login"
                     as={NavLink}
                 >
-                    <Button>Login</Button>
+                    <Button disabled>Login</Button>
                 </Nav.Link>
             </Container>
         </NavbarBS>

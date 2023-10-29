@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Form, InputGroup } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { uid } from 'uid';
@@ -151,4 +152,10 @@ export const PlayerNames = ({
             </Button>
         </>
     );
+};
+
+PlayerNames.propTypes = {
+    numberOfPlayers: PropTypes.number,
+    setNumberOfPlayers: PropTypes.func,
+    setPlayerCountChosen: PropTypes.func,
 };
