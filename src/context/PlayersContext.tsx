@@ -18,12 +18,12 @@ const PLAYERS = React.createContext({} as playersContext);
 
 export function usePlayers() {
     return useContext(PLAYERS);
-};
+}
 
 export function PlayersProvider({ children }: playersProviderProps) {
     return (
-        <PLAYERS.Provider value={{players: players}}>
+        <PLAYERS.Provider value={{ players: players }}>
             {children}
         </PLAYERS.Provider>
     );
-};
+}
