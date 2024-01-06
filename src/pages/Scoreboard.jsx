@@ -26,39 +26,44 @@ export const Scoreboard = () => {
         console.log({ saveConfirmation });
     }, [saveConfirmation]);
 
-    return (
-        <>
-            <h1>Scoreboard</h1>
-            <Table
-                striped
-                bordered
-                hover
-                variant="dark"
-            >
-                <thead>
-                    <tr>
-                        <th>Golfer</th>
-                        <th>Hole 1</th>
-                        <th>Hole 2</th>
-                        <th>Hole 3</th>
-                        <th>Hole 4</th>
-                        <th>Hole 5</th>
-                        <th>Hole 6</th>
-                        <th>Hole 7</th>
-                        <th>Hole 8</th>
-                        <th>Hole 9</th>
-                        <th>Total Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {localGolfers.map((golfer) => {
-                        const thisGolfer = localGolfers.find(
-                            (player) => player.id === golfer.id,
-                        );
-                        let totalScore = 0;
-                        Object.values(golfer.score).forEach((hole) => {
-                            totalScore += hole;
-                        });
+	return (
+		<>
+			<h1>Scoreboard</h1>
+			{/* <h2>Players:</h2> */}
+			{/* TODO: add whose deal it is this turn - or put it on each hole in the table header - or highlight the person whose turn it is to deal */}
+			{/* TODO: highlight the current hole */}
+			{/* <ul>
+				{localGolfers.map((golfer, index) => {
+					return (
+						<li key={`golfer-name${index + 1}`}>{golfer.name}</li>
+					);
+				})}
+			</ul> */}
+			<Table striped bordered hover variant="dark">
+				<thead>
+					<tr>
+						<th>Golfer</th>
+						<th>Hole 1</th>
+						<th>Hole 2</th>
+						<th>Hole 3</th>
+						<th>Hole 4</th>
+						<th>Hole 5</th>
+						<th>Hole 6</th>
+						<th>Hole 7</th>
+						<th>Hole 8</th>
+						<th>Hole 9</th>
+						<th>Total Score</th>
+					</tr>
+				</thead>
+				<tbody>
+					{localGolfers.map((golfer) => {
+						const thisGolfer = localGolfers.find(
+							(player) => player.id === golfer.id,
+						);
+						let totalScore = 0;
+						Object.values(golfer.score).forEach((hole) => {
+							totalScore += hole;
+						});
 
                         return (
                             <tr key={`scorecard-row-${golfer.name}`}>
