@@ -18,14 +18,16 @@ export const Scoreboard = () => {
 	return (
 		<>
 			<h1>Scoreboard</h1>
-			<h2>Players:</h2>
-			<ul>
+			{/* <h2>Players:</h2> */}
+			{/* TODO: add whose deal it is this turn - or put it on each hole in the table header - or highlight the person whose turn it is to deal */}
+			{/* TODO: highlight the current hole */}
+			{/* <ul>
 				{localGolfers.map((golfer, index) => {
 					return (
 						<li key={`golfer-name${index + 1}`}>{golfer.name}</li>
 					);
 				})}
-			</ul>
+			</ul> */}
 			<Table striped bordered hover variant="dark">
 				<thead>
 					<tr>
