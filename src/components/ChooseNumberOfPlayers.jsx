@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import styles from './chooseNumberOfPlayers.module.scss';
 
 // TODO: convert to typescript
 // type ChooseNumberOfPlayersProps = {
@@ -14,9 +15,8 @@ export const ChooseNumberOfPlayers = ({
     setNumberOfPlayers,
     setPlayerCountChosen,
 }) => {
-    console.log(typeof numberOfPlayers);
     return (
-        <Form>
+        <Form className={styles['choosePlayerCount']}>
             <Form.Label htmlFor="chooseNumberOfPlayers">
                 How Many Players?
             </Form.Label>
@@ -46,7 +46,7 @@ export const ChooseNumberOfPlayers = ({
 };
 
 ChooseNumberOfPlayers.propTypes = {
-    numberOfPlayers: PropTypes.string,
+    numberOfPlayers: PropTypes.number,
     setNumberOfPlayers: PropTypes.func,
     setPlayerCountChosen: PropTypes.func,
 };
