@@ -52,15 +52,15 @@ export const PlayerNames = ({
 }: PlayerNamesProps) => {
 	const players: Array<Object> = [];
 	const defaultScore: Object = {
-		hole1: 0,
-		hole2: 0,
-		hole3: 0,
-		hole4: 0,
-		hole5: 0,
-		hole6: 0,
-		hole7: 0,
-		hole8: 0,
-		hole9: 0,
+		hole1: null,
+		hole2: null,
+		hole3: null,
+		hole4: null,
+		hole5: null,
+		hole6: null,
+		hole7: null,
+		hole8: null,
+		hole9: null,
 	};
 	const playerNamesForm = [];
 	const navigate = useNavigate();
