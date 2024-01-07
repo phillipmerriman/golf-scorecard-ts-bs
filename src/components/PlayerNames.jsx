@@ -1,8 +1,10 @@
 import React from 'react';
 import { Button, Form, InputGroup } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { uid } from 'uid';
 import * as playerData from '../data/players.json';
+import styles from './globalStyles.module.scss';
 
 // TODO: convert to typescript
 // type PlayerNamesProps = {
@@ -113,7 +115,7 @@ export const PlayerNames = ({
 
     return (
         <>
-            <Form>
+            <Form className={styles['formStyles']}>
                 <Form.Label htmlFor="setPlayerNames">
                     Set Player Names
                 </Form.Label>
@@ -151,4 +153,10 @@ export const PlayerNames = ({
             </Button>
         </>
     );
+};
+
+PlayerNames.propTypes = {
+    numberOfPlayers: PropTypes.number,
+    setNumberOfPlayers: PropTypes.func,
+    setPlayerCountChosen: PropTypes.func,
 };
