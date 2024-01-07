@@ -10,8 +10,6 @@ import { Scoreboard } from './pages/Scoreboard';
 import players from './data/players.json';
 
 function App() {
-    console.log({ players });
-
     return (
         <>
             <Navbar />
