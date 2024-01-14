@@ -8,12 +8,13 @@ import { NewGame } from './pages/NewGame';
 import { PreviousGames } from './pages/PreviousGames';
 import { Scoreboard } from './pages/Scoreboard';
 import players from './data/players.json';
+import styles from './components/globalStyles.module.scss';
 
 function App() {
     return (
-        <>
+        <div className={`${styles['main-background-image']}`}>
             <Navbar />
-            <Container className="mb-4">
+            <Container className={`mb-4`}>
                 <Routes>
                     <Route
                         path="/"
@@ -37,7 +38,7 @@ function App() {
                     />
                 </Routes>
             </Container>
-        </>
+        </div>
     );
 }
 
