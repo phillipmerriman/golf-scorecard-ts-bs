@@ -1,11 +1,12 @@
 import { Button, Container, Nav, Navbar as NavbarBS } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import navbarStyles from './navbarStyles.module.scss';
 
 export const Navbar = () => {
     return (
         <NavbarBS
             sticky="top"
-            className="bg-white shadow-sm mb-3"
+            className={`bg-white shadow-sm mb-3 ${navbarStyles['navbar-image']}`}
         >
             <Container>
                 <Nav className="me-auto">
