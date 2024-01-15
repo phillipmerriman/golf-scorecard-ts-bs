@@ -6,9 +6,9 @@ export const Navbar = () => {
     return (
         <NavbarBS
             sticky="top"
-            className={`bg-white shadow-sm mb-3 ${navbarStyles['navbar-image']}`}
+            className={`shadow-sm mb-3 ${navbarStyles['navbar-image']}`}
         >
-            <Container>
+            <Container className={`${navbarStyles['navbar-content']}`}>
                 <Nav className="me-auto">
                     <Nav.Link
                         to="/"

@@ -3,6 +3,13 @@
     height: 100vh;
 }
 
+.container {
+    // background: white;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 8px;
+    padding: 16px;
+}
+
 .formStyles {
     width: 50%;
 }

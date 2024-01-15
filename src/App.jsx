@@ -14,7 +14,7 @@ function App() {
     return (
         <div className={`${styles['main-background-image']}`}>
             <Navbar />
-            <Container className={`mb-4`}>
+            <Container className={`mb-4 ${styles['container']}`}>
                 <Routes>
                     <Route
                         path="/"
