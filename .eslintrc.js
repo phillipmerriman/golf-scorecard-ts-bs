@@ -34,6 +34,7 @@ module.exports = {
     ],
     rules: {
         'prettier/prettier': 'error',
+        endOfLine: 'auto',
         // indent: ['error', 'tab'],
         // 'linebreak-style': ['warn', 'unix'],
         // quotes: ['error', 'single'],
