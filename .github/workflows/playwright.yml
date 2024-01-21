@@ -19,6 +19,17 @@ jobs:
               run: npx playwright install --with-deps
             - name: Start Server
               run: npx run dev &
+            - name: Wait for server to start
+              run: |
+                  timeout=0
+                  until [[ $timeout -ge 30 ]]; do
+                      response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000) # Adjust the URL and port
+                      if [ $response -eq 200 ]; then
+                      break
+                      fi
+                      sleep 1
+                      ((timeout++))
+                  done
             - name: Run Playwright tests
               run: npx playwright test
             - uses: actions/upload-artifact@v3
