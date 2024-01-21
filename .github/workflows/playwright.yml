@@ -23,7 +23,7 @@ jobs:
               run: |
                   timeout=0
                   until [[ $timeout -ge 30 ]]; do
-                      response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000) # Adjust the URL and port
+                      response=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5173) # Adjust the URL and port
                       if [ $response -eq 200 ]; then
                       break
                       fi
