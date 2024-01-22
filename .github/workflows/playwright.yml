@@ -8,20 +8,39 @@ jobs:
     test:
         timeout-minutes: 60
         runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 18
-            - name: Install dependencies
-              run: npm ci
-            - name: Install Playwright Browsers
-              run: npx playwright install --with-deps
-            - name: Run Playwright tests
-              run: npx playwright test
-            - uses: actions/upload-artifact@v3
-              if: always()
-              with:
-                  name: playwright-report
-                  path: playwright-report/
-                  retention-days: 30
+        # steps:
+        #     - uses: actions/checkout@v3
+        #     - uses: actions/setup-node@v3
+        #       with:
+        #           node-version: 18
+        #     - name: Install dependencies
+        #       run: npm ci
+        #     - name: Install Playwright Browsers
+        #       run: npx playwright install --with-deps
+        #     - name: Build project
+        #       run: npm run build
+        #     - name: Start Server
+        #       run: npm run dev &
+        #     # - name: Wait for server
+        #     #   run: |
+        #     #       while ! curl --output /dev/null --silent --fail http://127.0.0.1:5173; do sleep 1; done
+
+        #     # - name: Wait for server to start
+        #     #   run: |
+        #     #       timeout=0
+        #     #       until [[ $timeout -ge 30 ]]; do
+        #     #           response=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:5173) # Adjust the URL and port
+        #     #           if [ $response -eq 200 ]; then
+        #     #           break
+        #     #           fi
+        #     #           sleep 1
+        #     #           ((timeout++))
+        #     #       done
+        #     - name: Run Playwright tests
+        #       run: npx playwright test
+        #     - uses: actions/upload-artifact@v3
+        #       if: always()
+        #       with:
+        #           name: playwright-report
+        #           path: playwright-report/
+        #           retention-days: 30

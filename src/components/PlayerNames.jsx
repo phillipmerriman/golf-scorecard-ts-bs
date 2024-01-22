@@ -96,6 +96,7 @@ export const PlayerNames = ({
                 size="sm"
                 className="mb-3"
                 key={'IG' + i}
+                id={`player${i + 1}name`}
             >
                 <InputGroup.Text id={i + label}>{label}</InputGroup.Text>
                 <Form.Control
@@ -115,7 +116,10 @@ export const PlayerNames = ({
 
     return (
         <>
-            <Form className={styles['formStyles']}>
+            <Form
+                className={styles['formStyles']}
+                data-testid="name-input-form"
+            >
                 <Form.Label htmlFor="setPlayerNames">
                     Set Player Names
                 </Form.Label>
